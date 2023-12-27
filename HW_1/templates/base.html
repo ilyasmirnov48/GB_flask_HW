@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>
+
+        {% block title %}
+        Магазин
+        {% endblock %}
+
+    </title>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="/main/">Главная</a></li>
+        <li><a href=>Меню</a>
+            <ul>
+                <li><a href="/clothes/">Одежда</a></li>
+                <li><a href="/shoes/">Обувь</a></li>
+                <li><a href="/hats/">Головные уборы</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+{% block content %}
+    Страница не заполнена
+{% endblock %}
+
+<footer>
+    <div>
+        <hr>
+        <p>Все права защищены</p>
+    </div>
+</footer>
+</body>
+</html>
