@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+    {% for cat in category %}
+        <li>
+            <a href="{{ url_for(cat.func_name) }}">{{ cat.title }}</a>
+        </li>
+    {% endfor %}
+
+    {% block content %} {% endblock %}
+
+    </div>
+    <footer>
+        <div>
+            <p>Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
