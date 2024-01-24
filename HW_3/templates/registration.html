@@ -15,28 +15,19 @@ Registration
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <p>
-            {{ form.name.label }}<br>
-            {{ form.name(size=32) }}
-        </p>
-        <p>
-            {{ form.surname.label }}<br>
-            {{ form.surname(size=32) }}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=32) }}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-        </p>
-        <p>
-            {{ form.confirm_password.label }}<br>
-            {{ form.confirm_password(size=32) }}
-        </p>
-        <p>
-        <input type="submit" value="Registration">
-        </p>
+        {% for field in form if field.name != 'csrf_token' %}
+	<p>
+	<strong>field.label</strong>
+	{{ field(size=32) }}
+	</p>
+	<ul class="alert alert-danger">
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+	{% endfor %}
+	<p>
+	{{ form.submit() }}
+	</p>
     </form>
 {% endblock %}
